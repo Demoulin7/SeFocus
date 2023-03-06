@@ -22,10 +22,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $email = null;
 
     #[ORM\Column]
-    private array $roles = [];
+    private array $roles = ["ROLER_USER"];
 
     /**
-     * @var string The hashed password
+     * @var string mot de passe haché
      */
     #[ORM\Column]
     private ?string $password = null;
@@ -60,7 +60,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * A visual identifier that represents this user.
+     * Un identifiant visuel qui représente cet utilisateur.
      *
      * @see UserInterface
      */
@@ -75,7 +75,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function getRoles(): array
     {
         $roles = $this->roles;
-        // guarantee every user at least has ROLE_USER
+        // garantie que tous les user inscrit est le ROLE_USER
         $roles[] = 'ROLE_USER';
 
         return array_unique($roles);
@@ -108,7 +108,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function eraseCredentials()
     {
-        // If you store any temporary, sensitive data on the user, clear it here
+        // Si vous stockez des données temporaires et sensibles sur l'utilisateur, effacez-les ici.
         // $this->plainPassword = null;
     }
 

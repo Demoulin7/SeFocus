@@ -2,18 +2,28 @@
 
 namespace App\Controller\Admin;
 
+
+use App\Entity\User;
+use App\Entity\Carte;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 use Symfony\Component\HttpFoundation\Response;
+use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Producteur;
+use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 class adminController extends AbstractDashboardController
 {
+
+    public function __construct(
+        private AdminUrlGenerator $adminUrlGenerator
+    )   {    
+    }
     #[Route('/admin', name: 'admin')]
     public function index(): Response
     {
-        return parent::index();
 
         $url = $this->adminUrlGenerator //génère un URL
         ->setController(UserCrudController::class)//URL pour l'utilisateur
@@ -28,9 +38,9 @@ class adminController extends AbstractDashboardController
             ->setTitle('SeFocus');
     }
 
-    public function configureMenuItems(): iterable
+    public function configureMenuItems(): iterable //configure 
     {
-        yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
+        yield MenuItem::linkToCrud('Utilisateur', 'fas fa-list', User::class);
+        yield MenuItem::linkToCrud('Carte', 'fas fa-list', Carte::class);
     }
 }

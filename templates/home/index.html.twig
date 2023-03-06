@@ -15,9 +15,19 @@
     <ul>
         <li>Your controller at <code><a href="{{ 'C:/Users/Eddy/Desktop/Projets/SeFocus/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
         <li>Your template at <code><a href="{{ 'C:/Users/Eddy/Desktop/Projets/SeFocus/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
+        {% if not is_granted('IS_AUTHENTICATED') %}
         <li><a href="/register">Register</a></li>
+        {% endif %}
+        {% if not is_granted('IS_AUTHENTICATED') %}
         <li><a href="/login">Login</a></li>
+        {% endif %}
+        {% if is_granted('IS_AUTHENTICATED') %}
         <li><a href="/logout">Logout</a></li>
+        {% endif %}
+        {% if is_granted('ROLE_ADMIN') %}
+        <li><a href="/admin">Admin</a></li>
+        {% endif %}
+
     </ul>
 </div>
 {% endblock %}

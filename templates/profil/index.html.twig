@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SeFocus Mon compte{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Mon compte</h1>
+    <ul>
+        <li>Nom : {{ user.nom }} {{ user.prenom }}</li>
+        <li>Email : {{ user.email }}</li>
+        <li>Nombre de cycles pomodoro : {{ user.nbPomodoro }}</li>
+        <li>Nomre de cartes tirées : {{ user.listeCartesTirees|length }}</li>
+    </ul>
+
+    <a class="btn btn-primary" href="/logout">Se déconnecter</a>
+
+    {% if is_granted('ROLE_ADMIN') %}
+        <a class="btn btn-primary" href="/admin">Interface Administrateur</a>
+    {% endif %}
+
+</div>
+{% endblock %}

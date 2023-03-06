@@ -9,17 +9,6 @@
     </style>
 
     <div class="example-wrapper">
-        <h1>SeFocus</h1>
-
-        <ul>
-            {% if not is_granted('IS_AUTHENTICATED') %}
-                <li><a href="/login">Login</a></li>
-            {% endif %}
-            {% if is_granted('IS_AUTHENTICATED') %}
-                <li><a href="/profil">Profil</a></li>
-            {% endif %}
-
-        </ul>
 
         <h2>Affichage des cartes :</h2>
         {% for carte in cartes %}

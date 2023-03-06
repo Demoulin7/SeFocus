@@ -39,20 +39,18 @@ class CarteRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return Carte[] Returns an array of Carte objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('c')
-//            ->andWhere('c.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('c.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    /**
+     * @return Carte[] Returns an array of Carte objects public
+     */
+    public function findPublic(): array
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.estPublique = :val')
+            ->setParameter('val', 1)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 
 //    public function findOneBySomeField($value): ?Carte
 //    {

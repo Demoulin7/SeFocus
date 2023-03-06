@@ -11,6 +11,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 use Symfony\Component\HttpFoundation\Response;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Controller\Admin\UserCrudController;
+use App\Controller\Admin\CarteCrudController;
 use App\Entity\Producteur;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
@@ -24,7 +26,8 @@ class adminController extends AbstractDashboardController
     #[Route('/admin', name: 'admin')]
     public function index(): Response
     {
-
+        //demande si le compte à le role admin.
+        $this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'l utilisateur essais de se connecter sans compte admin');
         $url = $this->adminUrlGenerator //génère un URL
         ->setController(UserCrudController::class)//URL pour l'utilisateur
         ->setController(CarteCrudController::class)//URL pour les cartes

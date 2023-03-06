@@ -22,7 +22,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $email = null;
 
     #[ORM\Column]
-    private array $roles = ["ROLER_USER"];
+    private array $roles = ["ROLE_USER"];
 
     /**
      * @var string mot de passe haché

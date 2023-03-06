@@ -3,26 +3,35 @@
 {% block title %}SeFocus{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
 
-<div class="example-wrapper">
-    <h1> SeFocus ✅</h1>
+    <div class="example-wrapper">
+        <h1>SeFocus</h1>
 
-    <ul>
-        <li><a href="/register">Register</a></li>
-        <li><a href="/login">Login</a></li>
-        <li><a href="/admin">Admin</a></li>
-        <li><a href="/logout">Logout</a></li>
-    </ul>
+        <ul>
+            {% if not is_granted('IS_AUTHENTICATED') %}
+                <li><a href="/register">Register</a></li>
+            {% endif %}
+            {% if not is_granted('IS_AUTHENTICATED') %}
+                <li><a href="/login">Login</a></li>
+            {% endif %}
+            {% if is_granted('IS_AUTHENTICATED') %}
+                <li><a href="/logout">Logout</a></li>
+            {% endif %}
+            {% if is_granted('ROLE_ADMIN') %}
+                <li><a href="/admin">Admin</a></li>
+            {% endif %}
 
-    <h2>Affichage des cartes :</h2>
-    {% for carte in cartes %}
-        <div>
-            <h3>{{ carte.contenu }}</h3>
-        </div>
-    {% endfor %}
-</div>
+        </ul>
+
+        <h2>Affichage des cartes :</h2>
+        {% for carte in cartes %}
+            <div>
+                <h3>{{ carte.contenu }}</h3>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}

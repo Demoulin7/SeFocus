@@ -3,25 +3,110 @@
 {% block title %}SeFocus Mon compte{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Numans');
 
-<div class="example-wrapper">
-    <h1>Mon compte</h1>
-    <ul>
-        <li>Nom : {{ user.nom }} {{ user.prenom }}</li>
-        <li>Email : {{ user.email }}</li>
-        <li>Nombre de cycles pomodoro : {{ user.nbPomodoro }}</li>
-        <li>Nomre de cartes tirées : {{ user.listeCartesTirees|length }}</li>
-    </ul>
+        html,body{
+            background-color: gray;
+            height: 100%;
+            font-family: 'Numans', sans-serif;
+        }
 
-    <a class="btn btn-primary" href="/logout">Se déconnecter</a>
+        .container{
+            height: 100%;
+            align-content: center;
+        }
 
-    {% if is_granted('ROLE_ADMIN') %}
-        <a class="btn btn-primary" href="/admin">Interface Administrateur</a>
-    {% endif %}
+        .card{
+            margin-top: auto;
+            margin-bottom: auto;
+            width: 460px;
+        }
 
-</div>
+        .social_icon span{
+            font-size: 60px;
+            margin-left: 10px;
+            color: #FFC312;
+        }
+
+        .social_icon span:hover{
+            color: white;
+            cursor: pointer;
+        }
+
+        .card-header h3{
+            display: flex;
+            justify-content: center;
+        }
+
+        .input-group-prepend span{
+            width: 38px;
+            height: 100%;
+            background-color: dodgerblue;
+            color: black;
+            border:0 !important;
+        }
+
+        input:focus{
+            outline: 0 0 0 0  !important;
+            box-shadow: 0 0 0 0 !important;
+
+        }
+
+        .remember input
+        {
+            width: 20px;
+            height: 20px;
+            margin-left: 15px;
+            margin-right: 5px;
+        }
+
+        .links{
+            color: white;
+        }
+
+        .links a{
+            margin-left: 4px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        p {
+            margin: 1rem;
+        }
+
+    </style>
+
+    <div class="d-flex justify-content-center h-100">
+        <div class="card">
+            <div class="card-header">
+                <h3>Mon compte</h3>
+            </div>
+            <div class="card-body">
+                <div class="input-group form-group">
+                    <p>Nom : {{ user.nom }} {{ user.prenom }}</p>
+                </div>
+                <div class="input-group form-group">
+                    <p>Email : {{ user.email }}</p>
+                </div>
+                <div class="input-group form-group">
+                    <p>Nombre de cycles pomodoro :  {{ user.nbPomodoro }}</p>
+                </div>
+                <div class="input-group form-group">
+                    <p>Nomre de cartes tirées :  {{ user.listeCartesTirees|length }}</p>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="d-flex justify-content-center links">
+                    <a class="btn btn-primary" href="/logout">Se déconnecter</a>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <a class="btn btn-primary" href="/admin">Interface Administrateur</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}

@@ -54,7 +54,7 @@
   cursor: pointer;
 }
 
-input {
+.input-theme {
   position: absolute;
   display: none;
 }
@@ -67,7 +67,7 @@ input {
   transition: 0.3s;
 }
 
-input:checked ~ .slider {
+.input-theme:checked ~ .slider {
   background-color: var(--light);
 }
 
@@ -112,6 +112,7 @@ html,body{
   margin-bottom: auto;
   width: 400px;
   background-color: rgba(0,0,0,0.5) !important;
+  padding: 20px;
 }
 
 .social_icon span{
@@ -165,20 +166,22 @@ form button {
   margin-top: 15px;
 }
 
-form div {
-  margin-top: 10px;
-}
-
 .login_btn{
   color: black;
   background-color: dodgerblue;
   width: 100%;
-  margin-top: 15px;
 }
 
 .login_btn:hover{
   color: black;
   background-color: white;
+}
+
+.register_btn{
+  color: black;
+  background-color: dodgerblue;
+  width: 100%;
+  margin-top: 15px;
 }
 
 .input-group {

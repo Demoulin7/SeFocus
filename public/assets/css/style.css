@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+/* Light Mode */
+:root[color-mode="light"] {
+  --bg-color: #d4d4d4;
+  --navbar-color: #161616;
+  --navbar-text-color: #cccccc;
+  --line-color: #282828;
+  --text-color: black;
+}
+
+/* Dark Mode */
+:root[color-mode="dark"] {
+  --bg-color: #1c1c1c;
+  --navbar-color: #161616;
+  --navbar-text-color: #cccccc;
+  --line-color: #282828;
+  --text-color: white;
+}
+
+:root {
+  --pcbg-cl: #fff;
+  --pctext-cl: #313131;
+  --pcdm_btnbg: rgba(0, 0, 0, .1);
+  --pcdm_btnd: #666;
+  --pcdm_btndbg: #fff;
+  --pcdm_btnn: var(--pctext-cl);
+  --pcdm_btnnbg: var(--pcbg-cl);
+}
+
+/* Switch theme */
+
+:root {
+  --light: #d8dbe0;
+  --dark: #28292c;
+  --link: rgb(27, 129, 112);
+  --link-hover: rgb(24, 94, 82);
+}
+
+.toggle-switch {
+  position: absolute;
+  right: 10px;
+  margin-top: 10px;
+  z-index: 9999;
+  width: 100px;
+}
+
+.label-switch {
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  background-color: var(--dark);
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+input {
+  position: absolute;
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  transition: 0.3s;
+}
+
+input:checked ~ .slider {
+  background-color: var(--light);
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 8px;
+  width: 37px;
+  height: 37px;
+  border-radius: 50%;
+  box-shadow: inset 14px -4px 0px 0px var(--light);
+  background-color: var(--dark);
+  transition: 0.3s;
+}
+
+input:checked ~ .slider::before {
+  transform: translateX(47px);
+  background-color: var(--dark);
+  box-shadow: none;
+}
+
+/* Autres */
+
+html,body{
+  background-color: var(--bg-color);
+  height: 100%;
+  font-family: 'Numans', sans-serif;
+}
+
+.container{
+  height: 100%;
+  align-content: center;
+}
+
+.h1, h2, h3, p {
+  color: var(--text-color);
+}
+
+.card{
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 400px;
+  background-color: rgba(0,0,0,0.5) !important;
+}
+
+.social_icon span{
+  font-size: 60px;
+  margin-left: 10px;
+  color: #FFC312;
+}
+
+.social_icon span:hover{
+  color: white;
+  cursor: pointer;
+}
+
+.card-header h3{
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.input-group-prepend span{
+  width: 38px;
+  height: 100%;
+  background-color: dodgerblue;
+  color: black;
+  border:0 !important;
+}
+
+input:focus{
+  outline: 0 0 0 0  !important;
+  box-shadow: 0 0 0 0 !important;
+
+}
+
+.remember input
+{
+  width: 20px;
+  height: 20px;
+  margin-left: 15px;
+  margin-right: 5px;
+}
+
+.links{
+  color: white;
+}
+
+.links a{
+  margin-left: 4px;
+}
+
+form button {
+  margin-top: 15px;
+}
+
+form div {
+  margin-top: 10px;
+}
+
+.login_btn{
+  color: black;
+  background-color: dodgerblue;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.login_btn:hover{
+  color: black;
+  background-color: white;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.row {
+  margin-bottom: 15px;
+}
+
+p {
+  margin: 1rem;
+}
+

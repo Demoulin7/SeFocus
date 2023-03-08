@@ -196,3 +196,12 @@ p {
   margin: 1rem;
 }
 
+.user_int {
+  background: grey;
+  border-radius: 30px;
+  height: 45px!important;
+  width: 45px!important;
+  margin-left: 20px;
+  padding-top: 14px!important;
+  padding-left: 15px!important;
+}

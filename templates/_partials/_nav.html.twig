@@ -13,10 +13,10 @@
                 </li>
                 <li class="nav-item">
                     {% if not is_granted('IS_AUTHENTICATED') %}
-                        <a class="nav-link mx-2" href="/login"><span class="glyphicon glyphicon-user"></span> Se connecter</a>
+                        <a class="nav-link mx-2 fas fa-user user_int" href="/login"></a>
                     {% endif %}
                     {% if is_granted('IS_AUTHENTICATED') %}
-                        <a class="nav-link mx-2" href="/profil"><span class="glyphicon glyphicon-user"></span> Profil</a>
+                        <a class="nav-link mx-2 fas fa-user user_int"  href="/profil"></a>
                     {% endif %}
                 </li>
             </ul>

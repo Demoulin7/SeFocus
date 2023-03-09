@@ -27,7 +27,6 @@ class adminController extends AbstractDashboardController
     public function index(): Response
     {
         //demande si le compte à le role admin.
-        $this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'l utilisateur essais de se connecter sans compte admin');
         $url = $this->adminUrlGenerator //génère un URL
         ->setController(UserCrudController::class)//URL pour l'utilisateur
         ->setController(CarteCrudController::class)//URL pour les cartes
@@ -38,7 +37,8 @@ class adminController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('SeFocus');
+            ->setTitle('<img src="assets/img/favicon.png" class="img-fluid d-block mx-auto" style="max-width:100px; width:100%;">')
+            ;
     }
 
     public function configureMenuItems(): iterable //configure 

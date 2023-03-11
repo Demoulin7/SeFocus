@@ -8,6 +8,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
 
 class UserCrudController extends AbstractCrudController
 {
@@ -20,12 +21,12 @@ class UserCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            NumberField::new('id', 'ID')->hideOnForm(),
-            EmailField::new('email', 'E-mail'),
-            ArrayField::new('roles', 'Role'),
-            TextField::new('password', 'Mot de passe'),
+            NumberField::new('id', 'ID')->hideOnForm(),//le rend invisible lors de la page de creation.
             TextField::new('Nom'),
             TextField::new('Prenom'),
+            EmailField::new('email', 'E-mail'),
+            ArrayField::new('roles', 'Role'),
+            TextField::new('password', 'Mot de passe')->hideOnIndex(),//rend invisible dans la page admin
             NumberField::new('nbPomodoro', 'Nombre de pomodoro')->hideOnForm(),
             ArrayField::new('listeCartesTirees', 'Carte tirée')->hideOnForm(),
         ];

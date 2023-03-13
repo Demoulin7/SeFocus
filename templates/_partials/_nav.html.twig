@@ -1,25 +1,64 @@
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/"><img src="assets/img/logo_min.png" width="40px" height="40px"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+<header id="masthead" class="site-header content">
+    <div class="header-content">
 
-        <div class=" collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ms-auto ">
-                <li class="nav-item">
-                    <a class="nav-link mx-2" href="/apropos"> En savoir plus</a>
-                </li>
-                <li class="nav-item">
-                    {% if not is_granted('IS_AUTHENTICATED') %}
-                        <a class="nav-link mx-2 fas fa-user user_int" href="/login"></a>
-                    {% endif %}
-                    {% if is_granted('IS_AUTHENTICATED') %}
-                        <a class="nav-link mx-2 fas fa-user user_int"  href="/profil"></a>
-                    {% endif %}
-                </li>
-            </ul>
+        <div class="main-logo">
+            <a class="header_logo" href="/" title="" rel="home">
+                <img src="assets/img/logo_min.png" alt="Logo SeFocus">
+            </a>
+        </div>
+        <div id="myMainnav" class="main-nav">
+            <div class="nav-menu">
+                <ul>
+                    <li class="auto-sublist">
+                        <a class="main-link">En savoir plus</a>
+                        <div class="nav-menu-sub">
+                            <div class="sub-nav-menu">
+                                <span>
+                                    <a href="/apropos" class="text">A propos</a>
+                                    <a href="/trombinoscope" class="text">Notre équipe</a>
+                                    <a href="/contact" class="text">Nous contacter</a>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="main-link">
+                        {% if not is_granted('IS_AUTHENTICATED') %}
+                            <a class="nav-link mx-2 user_int" href="/login"><i class="fa fa-user"></i></a>
+                        {% endif %}
+                        {% if is_granted('IS_AUTHENTICATED') %}
+                            <a class="nav-link mx-2 fas fa-user user_int"  href="/profil"></a>
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
-</nav>
+</header>
+<div id="mainSideNav">
+    <label for="check" class="openSidenav"><i class="fas fa-bars"></i></label>
+    <a class="sideNavLogo" href="/" title="" rel="home">
+        <img src="assets/img/logo_min.png" alt="Logo SeFocus">
+    </a>
+</div>
+<div id="mySidenav" class="sidenav">
+    <button class="closeSidenav"><i class="fas fa-times-circle"></i></button>
+    <a class="header_logo" href="/" title="" rel="home">
+        <img src="assets/img/logo_min.png" alt="Logo SeFocus">
+    </a>
+    <div class="submenu">
+        <ul>
+            <li>
+                <a class="submenu-link text" href="/apropos">A propos</a>
+            </li>
+            <li>
+                <a class="submenu-link text" href="/trombinoscope">Notre équipe</a>
+            </li>
+            <li>
+                <a class="submenu-link text" href="/contact">Nous contacter</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="nav-padding">
+</div>

@@ -4,17 +4,57 @@
 
 {% block body %}
 
-    <div>
+    <div class="text introducer">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi mollis augue semper tellus accumsan maximus vel ultrices purus.
         Nullam id leo non nisl vestibulum iaculis egestas at lorem. Vivamus viverra est rhoncus tellus suscipit,
         in sodales ex mattis. Vestibulum consequat velit ornare dolor tempus, nec pellentesque tortor feugiat.
     </div>
 
-    <h2>Affichage des cartes :</h2>
+    <div class="title_main text">Piochez votre carte et décidez vous-même de votre destin</div>
+
+    <div class="pioche">
+        <div class="pile">
+            <div class="carte text">text</div>
+        </div>
+        <div class="destination">
+            <div class="carte text">text</div>
+        </div>
+    </div>
+
+    <p class="undertext">{{ donnees.nbTiragesT }} cartes déjà piochées, saisissez la prochaine !</p>
+
     {% for carte in cartes %}
         <div>
-            <h3>{{ carte.contenu }}</h3>
+            <h3>{{ carte.id }}</h3>
         </div>
     {% endfor %}
+
+    <div class="title_main text">Pomodoro : Commencer d'abord par 25 minutes, c'est déjà un grand pas !</div>
+
+    <div class="timer">
+        <div class="button-group mode-buttons" id="js-mode-buttons">
+            <button data-mode="pomodoro" class="button mode-button active" id="js-pomodoro">
+                Pomodoro
+            </button>
+            <button data-mode="shortBreak" class="button mode-button" id="js-short-break">
+                Petite Pause
+            </button>
+            <button data-mode="longBreak" class="button mode-button" id="js-long-break">
+                Longue Pause
+            </button>
+        </div>
+        <div class="clock" id="js-clock">
+            <span id="js-minutes" class="text">25</span>
+            <span class="separator text">:</span>
+            <span id="js-seconds" class="text">00</span>
+        </div>
+        <progress id="js-progress" value="0" max="1500"></progress>
+        <div class="progress-bar"></div>
+        <button class="main-button" data-action="start" id="js-btn">
+            Start
+        </button>
+    </div>
+
+    <p class="undertext pomodoro-t">{{ donnees.nbPomodoroT }} cycles déjà complétés</p>
 
 {% endblock %}

@@ -39,6 +39,19 @@ class DonneesRepository extends ServiceEntityRepository
         }
     }
 
+    /**
+     * @return Donnees[] Returns an array of Carte objects public
+     */
+    public function findDonnees(): array
+    {
+        return $this->createQueryBuilder('d')
+            ->andWhere('d.id = :val')
+            ->setParameter('val', 1)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
 //    /**
 //     * @return Donnees[] Returns an array of Donnees objects
 //     */

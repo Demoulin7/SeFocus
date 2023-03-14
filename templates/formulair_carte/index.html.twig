@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FormulairCarteController!{% endblock %}
+
+{% block body %}
+    {{ form_start(form) }}
+        {{ form_label(form.contenu) }}
+        {{ form_widget(form.contenu) }}
+        {{ form_rest(form) }}
+        <button type="submit">Enregistrer</button>
+    {{ form_end(form) }}
+{% endblock %}

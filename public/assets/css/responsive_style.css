@@ -86,3 +86,13 @@
         margin:0 0 0
     }
 }
+
+/* Login */
+
+@media (max-width:400px) {
+    .login-links {
+        display: flex!important;
+        flex-direction: column;
+        align-items: center;
+    }
+}

@@ -735,6 +735,13 @@ form button {
   margin-bottom: 15px;
 }
 
+.row_account label{
+  display:none;
+}
+
+
+
+
 p {
   margin: 1rem;
 }

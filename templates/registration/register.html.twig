@@ -11,22 +11,38 @@
             </div>
             <div class="card-body">
                 {{ form_start(registrationForm) }}
-                    {{ form_row(registrationForm.email) }}
-                    {{ form_row(registrationForm.nom) }}
-                    {{ form_row(registrationForm.prenom) }}
-                    {{ form_row(registrationForm.plainPassword, {
-                        label: 'Password'
-                    }) }}
-                    {{ form_row(registrationForm.agreeTerms) }}
+                    <div class="input-group form-group row_account">
+                        {{ form_row(registrationForm.email, {
+                            'attr': {'placeholder': 'Email'}
+                        }) }}
+                    </div>
+                    <div class="input-group form-group row_account">
+                        {{ form_row(registrationForm.nom, {
+                            'attr': {'placeholder': 'Nom'}
+                        }) }}
+                    </div>
+                    <div class="input-group form-group row_account">
+                        {{ form_row(registrationForm.prenom, {
+                            'attr': {'placeholder': 'Prénom'},
+                        }) }}
+                    </div>
+                    <div class="input-group form-group row_account">
+                        {{ form_row(registrationForm.plainPassword, {
+                            label: 'Password',
+                            'attr': {'placeholder': 'Mot de passe'},
+                        }) }}
+                    </div>
+                    <div class="text">
+                        {{ form_row(registrationForm.agreeTerms) }}
+                    </div>
 
-                    <button type="submit" class="btn btn-primary register_btn">Register</button>
+                    <button type="submit" class="btn btn-primary register_btn">Créer un compte</button>
                 {{ form_end(registrationForm) }}
             </div>
             <div class="card-footer">
                 <div class="d-flex justify-content-center links">
                     <a href="/login">J'ai déjà un compte</a>
                 </div>
-
             </div>
         </div>
     </div>

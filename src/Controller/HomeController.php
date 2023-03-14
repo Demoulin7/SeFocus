@@ -18,4 +18,18 @@ class HomeController extends AbstractController
             'donnees' => $donneesRepository->findDonnees()[0]
         ]);
     }
+
+    #[Route('/apropos', name: 'app_apropos')]
+    public function apropos(): Response
+    {
+        return $this->render('home/apropos.html.twig', [
+        ]);
+    }
+
+    #[Route('/equipe', name: 'app_equipe')]
+    public function equipe(): Response
+    {
+        return $this->render('home/equipe.html.twig', [
+        ]);
+    }
 }

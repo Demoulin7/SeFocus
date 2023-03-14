@@ -16,7 +16,7 @@
                             <div class="sub-nav-menu">
                                 <span>
                                     <a href="/apropos" class="text">A propos</a>
-                                    <a href="/trombinoscope" class="text">Notre équipe</a>
+                                    <a href="/equipe" class="text">Notre équipe</a>
                                     <a href="/contact" class="text">Nous contacter</a>
                                 </span>
                             </div>
@@ -24,7 +24,7 @@
                     </li>
                     <li class="main-link">
                         {% if not is_granted('IS_AUTHENTICATED') %}
-                            <a class="nav-link mx-2 user_int" href="/login"><i class="fa fa-user"></i></a>
+                            <a class="nav-link mx-2 fas fa-user user_int"  href="/login"></a>
                         {% endif %}
                         {% if is_granted('IS_AUTHENTICATED') %}
                             <a class="nav-link mx-2 fas fa-user user_int"  href="/profil"></a>
@@ -52,7 +52,7 @@
                 <a class="submenu-link text" href="/apropos">A propos</a>
             </li>
             <li>
-                <a class="submenu-link text" href="/trombinoscope">Notre équipe</a>
+                <a class="submenu-link text" href="/equipe">Notre équipe</a>
             </li>
             <li>
                 <a class="submenu-link text" href="/contact">Nous contacter</a>

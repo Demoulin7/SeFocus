@@ -3,6 +3,14 @@
 {% block title %}Nous contacter{% endblock %}
 
 {% block body %}
+    <h1>Nous Contacter</h1>
+    {% for message in app.flashes("succes")%}
+        <div>
+            {{message}}
+        </div>
+    {% endfor %}
     <div class="d-flex justify-content-center h-100">
+        {{form(form)}}
     </div>
+    <button type="submit" class="btn btn-primary register_btn">Envoyé le formulaire</button>
 {% endblock %}

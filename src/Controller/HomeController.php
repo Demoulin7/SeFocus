@@ -75,15 +75,24 @@ class HomeController extends AbstractController
         $entityManager = $doctrine->getManager();
 
         $donnees = $entityManager->getRepository(Donnees::class)->find(1);
+        $userId = $this->getUser()->getId();
 
-        $donnees->setNbPomodoroT($donnees->getNbPomodoroT()+1);
+        $userRep = $entityManager->getRepository(User::class)->find($userId);
+
+        $userRep->setNbPomodoro($userRep->getNbPomodoro()+1);
+
+        $nbPomodoroT = $donnees->getNbPomodoroT()+1;
+
+        $donnees->setNbPomodoroT($nbPomodoroT);
 
         $entityManager->persist($donnees);
+
+        $entityManager->persist($userRep);
 
         $entityManager->flush();
 
         return new Response(
-            'pomodoro'
+            $nbPomodoroT
         );
     }
 }

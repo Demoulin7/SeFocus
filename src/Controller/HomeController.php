@@ -3,11 +3,13 @@
 namespace App\Controller;
 
 use App\Entity\Donnees;
+use App\Entity\User;
 use App\Repository\CarteRepository;
 use App\Repository\DonneesRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
@@ -36,18 +38,29 @@ class HomeController extends AbstractController
     }
 
     #[Route('/tirageCarte', name: 'tirageCarte')]
-    public function tirageCarte(ManagerRegistry $doctrine): Response
+    public function tirageCarte(Request $request, ManagerRegistry $doctrine): Response
     {
         $entityManager = $doctrine->getManager();
 
         $donnees = $entityManager->getRepository(Donnees::class)->find(1);
-        $user = $this->getUser();
+        $userId = $this->getUser()->getId();
+
+        $userRep = $entityManager->getRepository(User::class)->find($userId);
+
+        $idCarte = $request->request->get('idCarte');
+
+        $listeCartes = $userRep->getListeCartesTirees();
+
+        $listeCartes[] = $idCarte;
+
+        $userRep->setListeCartesTirees($listeCartes);
 
         $ndTirages = $donnees->getNbTiragesT()+1;
 
         $donnees->setNbTiragesT($ndTirages);
 
         $entityManager->persist($donnees);
+        $entityManager->persist($userRep);
 
         $entityManager->flush();
 

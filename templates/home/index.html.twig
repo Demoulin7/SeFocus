@@ -18,7 +18,7 @@
             </div>
         </div>
         <div class="cartes">
-            <div class="carte-flip carte_fond pile">
+            <div class="carte-flip carte_fond pile" data="2"> <!-- {% for carte in cartes %} {{ carte.id }} {% endfor %}-->
                 <div class="card__face card__face--front">
                     <div class="card2">Tirer une carte
                     </div>
@@ -34,13 +34,6 @@
     </div>
 
     <p class="undertext text tirage-t">{{ donnees.nbTiragesT }} cartes déjà piochées, saisissez la prochaine !</p>
-
-    <!--
-    {% for carte in cartes %}
-        <div>
-            <h3>{{ carte.id }}</h3>
-        </div>
-    {% endfor %} -->
 
     <div class="title_main text">Pomodoro : Commencer d'abord par 25 minutes, c'est déjà un grand pas !</div>
 

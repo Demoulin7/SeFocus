@@ -7,9 +7,12 @@ carte.addEventListener( 'click', function() {
 
     let tirages = document.querySelector('.tirage-t');
 
+    let idCarte = carte.getAttribute("data");
+
     $.ajax({
         url: '/tirageCarte',
         type: 'POST',
+        data: {idCarte: idCarte },
         success: function(response) {
             tirages.innerHTML = response + " cartes déjà piochées, saisissez la prochaine !";
         }

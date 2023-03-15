@@ -601,6 +601,7 @@ html,body{
 
 .container{
   align-content: center;
+  min-height: 80%;
 }
 
 .h1, h2, h3 {

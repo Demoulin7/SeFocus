@@ -18,13 +18,13 @@
             </div>
         </div>
         <div class="cartes">
-            <div class="carte-flip carte_fond pile" data="2"> <!-- {% for carte in cartes %} {{ carte.id }} {% endfor %}-->
+            <div class="carte-flip carte_fond pile" data="{{ carte.id }}">
                 <div class="card__face card__face--front">
                     <div class="card2">Tirer une carte
                     </div>
                 </div>
                 <div class="card__face card__face--back">
-                    <div class="card2">Lorem Ipsum
+                    <div class="card2">{{ carte.contenu }}
                     </div>
                 </div>
             </div>

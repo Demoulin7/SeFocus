@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Carte;
 use App\Entity\Donnees;
 use App\Entity\User;
 use App\Repository\CarteRepository;
@@ -18,8 +19,8 @@ class HomeController extends AbstractController
     public function index(CarteRepository $carteRepository, DonneesRepository $donneesRepository): Response
     {
         return $this->render('home/index.html.twig', [
-            'cartes' => $carteRepository->findPublic(),
-            'donnees' => $donneesRepository->findDonnees()[0]
+            'carte' => $carteRepository->findRandomPublic()[0],
+            'donnees' => $donneesRepository->findDonnees()[0],
         ]);
     }
 
@@ -42,6 +43,8 @@ class HomeController extends AbstractController
     {
         $entityManager = $doctrine->getManager();
 
+        $listeToutesCartes = $entityManager->getRepository(Carte::class)->findAll();
+
         $donnees = $entityManager->getRepository(Donnees::class)->find(1);
         $userId = $this->getUser()->getId();
 
@@ -52,6 +55,8 @@ class HomeController extends AbstractController
         $listeCartes = $userRep->getListeCartesTirees();
 
         $listeCartes[] = $idCarte;
+
+        $carteRetour = $entityManager->getRepository(Carte::class)->findRandomForUser($listeCartes, $listeToutesCartes);
 
         $userRep->setListeCartesTirees($listeCartes);
 
@@ -64,9 +69,15 @@ class HomeController extends AbstractController
 
         $entityManager->flush();
 
-        return new Response(
-            $ndTirages
-        );
+        if ($carteRetour) {
+            return new Response(
+                $carteRetour[0]->getId() . "," . $carteRetour[0]->getContenu() . "," . $ndTirages
+            );
+        } else {
+            return new Response(
+                0 . "," . "Plus de cartes à tirer !" . "," . $ndTirages
+            );
+        }
     }
 
     #[Route('/pomodoroComplete', name: 'pomodoroComplete')]

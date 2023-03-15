@@ -39,7 +39,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?int $nbPomodoro = 0;
 
-    #[ORM\Column(type: Types::ARRAY)]
+    #[ORM\Column]
     private array $listeCartesTirees = [];
 
     public function getId(): ?int

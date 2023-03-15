@@ -21,7 +21,7 @@ class CarteCrudController extends AbstractCrudController
         return [
             NumberField::new('id', 'ID')->hideOnForm(),
             TextField::new('contenu'),
-            BooleanField::new('estPublique', 'Visible'),
+            BooleanField::new('estPublique', 'Est publique'),
         ];
     }
 }

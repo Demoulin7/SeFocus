@@ -19,7 +19,7 @@
                                     <a href="/equipe" class="text">Notre équipe</a>
                                     <a href="/contact" class="text">Nous contacter</a>
                                     {% if is_granted('IS_AUTHENTICATED') %}
-                                        <a href="/formulair/carte">crée une carte</a>
+                                        <a href="/formulair/carte">Créer une carte</a>
                                     {% endif %}
                                 </span>
                             </div>
@@ -59,6 +59,14 @@
             </li>
             <li>
                 <a class="submenu-link text" href="/contact">Nous contacter</a>
+            </li>
+            <li>
+                {% if not is_granted('IS_AUTHENTICATED') %}
+                    <a class="submenu-link text fas fa-user user_int sidenav_user"  href="/login"></a>
+                {% endif %}
+                {% if is_granted('IS_AUTHENTICATED') %}
+                    <a class="submenu-link text fas fa-user user_int sidenav_user"  href="/profil"></a>
+                {% endif %}
             </li>
         </ul>
     </div>

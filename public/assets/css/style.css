@@ -579,7 +579,6 @@ button:focus, button:active {
   padding-bottom: 10px;
 }
 
-
 @keyFrames navLinkFade{
   from{
     opacity: 0;
@@ -589,6 +588,23 @@ button:focus, button:active {
     opacity: 1;
     transfrom: translate(0px);
   }
+}
+
+.user_int {
+  background: grey;
+  border-radius: 30px;
+  height: 45px!important;
+  width: 45px!important;
+}
+
+.sidenav_user{
+  padding: 24px 0px 0px 28px!important;
+  margin-left: auto!important;
+  margin-right: auto!important;
+  margin-top: 50px!important;
+  height: 75px!important;
+  width: 75px!important;
+  border-radius: 50px!important;
 }
 
 /* Autres */
@@ -731,11 +747,4 @@ form button {
 
 p {
   margin: 1rem;
-}
-
-.user_int {
-  background: grey;
-  border-radius: 30px;
-  height: 45px!important;
-  width: 45px!important;
 }

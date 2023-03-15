@@ -96,3 +96,31 @@
         align-items: center;
     }
 }
+
+/* Cartes */
+
+@media (max-width:1350px) {
+    .emplacement {
+        left: 42.5%;
+    }
+}
+
+@media (max-width:1000px) {
+    .emplacement {
+        left: 40%;
+    }
+
+    .pile {
+        left:10%;
+    }
+
+    .pile_pioche{
+        left: 10%;
+    }
+}
+
+@media (max-width:768px) {
+    .emplacement {
+        left: 37.5%;
+    }
+}

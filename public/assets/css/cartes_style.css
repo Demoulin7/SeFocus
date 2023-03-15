@@ -19,7 +19,6 @@
 }
 
 .cartes {
-  position: relative;
   height: 300px;
 }
 
@@ -78,16 +77,14 @@
 .emplacement {
   transition:all 1s;
   position: absolute;
-  top:0px;
-  left:500px;
   z-index: 1;
+  left: 45%;
 }
 
 .pile {
   position: absolute;
   cursor: pointer;
-  top:0px;
-  left:50px;
+  left:15%;
   z-index: 1;
 }
 
@@ -111,13 +108,13 @@
 }
 
 .pile_pioche{
-  position: relative;
+  position: absolute;
+  left: 15%;
 }
 
 .carte_fond_pioche{
   position: absolute;
   top:0px;
-  left:50px;
   width: 200px;
   height: 300px;
   background-color: #1a1a1a;

@@ -6,3 +6,9 @@ controllers:
 index:
     path: /
     controller: App\Controller\HomeController::index
+tirageCarte:
+    path: /tirageCarte
+    controller: App\Controller\HomeController::tirageCarte
+pomodoroComplete:
+    path: /pomodoroComplete
+    controller: App\Controller\HomeController::pomodoroComplete

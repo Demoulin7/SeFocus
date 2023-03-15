@@ -63,6 +63,15 @@ function startTimer() {
                     } else {
                         switchMode('shortBreak');
                     }
+
+                    let pomodoros = document.querySelector('.pomodoro-t');
+                    $.ajax({
+                        url: '/pomodoroComplete',
+                        type: 'POST',
+                        success: function(response) {
+                            pomodoros.innerHTML = response + " cycles déjà complétés";
+                        }
+                    });
                     break;
                 default:
                     switchMode('pomodoro');

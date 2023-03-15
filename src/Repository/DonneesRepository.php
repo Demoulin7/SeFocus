@@ -52,6 +52,19 @@ class DonneesRepository extends ServiceEntityRepository
             ;
     }
 
+    /**
+     * @return Donnees Returns the first one
+     */
+    public function findFirst(): Donnees
+    {
+        return $this->createQueryBuilder('d')
+            ->orderBy('d.id', 'ASC')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
 //    /**
 //     * @return Donnees[] Returns an array of Donnees objects
 //     */

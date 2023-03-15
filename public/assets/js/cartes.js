@@ -1,13 +1,18 @@
-var carte = document.querySelector('.carte-flip');
+let carte = document.querySelector('.pile');
 
 carte.addEventListener( 'click', function() {
-    carte.classList.toggle('is-flipped');
+    carte.classList.remove('pile');
+    carte.classList.add('emplacement');
+    carte.classList.add('is-flipped');
+
+    let tirages = document.querySelector('.tirage-t');
+
+    $.ajax({
+        url: '/tirageCarte',
+        type: 'POST',
+        success: function(response) {
+            tirages.innerHTML = response + " cartes déjà piochées, saisissez la prochaine !";
+        }
+    });
 });
 
-var box = document.querySelector('.pile');
-
-box.addEventListener( 'click', function() {
-    box.classList.remove('pile');
-    box.classList.add('emplacement');
-    box.classList.add('is-flipped');
-});

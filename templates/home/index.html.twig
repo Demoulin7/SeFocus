@@ -12,22 +12,47 @@
 
     <div class="title_main text">Piochez votre carte et décidez vous-même de votre destin</div>
 
-    <div class="pioche">
-        <div class="pile">
-            <div class="carte text">text</div>
+
+    <!--<div class="strategies">
+        <div class="cartes">
+            <div class="carte-flip carte_fond pile">
+                <div class="card__face card__face--front">Tirer une carte</div>
+                <div class="card__face card__face--back">Lorum Ipsum</div>
+            </div>
+            <div class="carte_fond emplacement">
+            </div>
         </div>
-        <div class="destination">
-            <div class="carte text">text</div>
+    </div> -->
+
+    <div class="strategies">
+        <div class="pile_pioche">
+            <div class="carte_fond_pioche">
+            </div>
+        </div>
+        <div class="cartes">
+            <div class="carte-flip carte_fond pile">
+                <div class="card__face card__face--front">
+                    <div class="card2">Tirer une carte
+                    </div>
+                </div>
+                <div class="card__face card__face--back">
+                    <div class="card2">Lorem Ipsum
+                    </div>
+                </div>
+            </div>
+            <div class="carte_fond emplacement">
+            </div>
         </div>
     </div>
 
-    <p class="undertext">{{ donnees.nbTiragesT }} cartes déjà piochées, saisissez la prochaine !</p>
+    <p class="undertext text">{{ donnees.nbTiragesT }} cartes déjà piochées, saisissez la prochaine !</p>
 
+    <!--
     {% for carte in cartes %}
         <div>
             <h3>{{ carte.id }}</h3>
         </div>
-    {% endfor %}
+    {% endfor %} -->
 
     <div class="title_main text">Pomodoro : Commencer d'abord par 25 minutes, c'est déjà un grand pas !</div>
 
@@ -55,6 +80,6 @@
         </button>
     </div>
 
-    <p class="undertext pomodoro-t">{{ donnees.nbPomodoroT }} cycles déjà complétés</p>
+    <p class="undertext pomodoro-t text">{{ donnees.nbPomodoroT }} cycles déjà complétés</p>
 
 {% endblock %}

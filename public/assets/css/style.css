@@ -92,19 +92,6 @@ input:checked ~ .slider::before {
   box-shadow: none;
 }
 
-/* pioche*/
-
-.pioche{
-  display: flex;
-}
-
-.pile{
-  width: 33%;
-}
-
-.destination{
-  width: 66%;
-}
 
 /* Pomodoro */
 
@@ -613,7 +600,6 @@ html,body{
 }
 
 .container{
-  height: 100%;
   align-content: center;
 }
 

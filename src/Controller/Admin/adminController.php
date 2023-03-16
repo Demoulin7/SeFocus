@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\User;
 use App\Entity\Carte;
+use App\Entity\Contact;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -13,8 +14,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Controller\Admin\UserCrudController;
 use App\Controller\Admin\CarteCrudController;
-use App\Entity\Producteur;
-use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use App\Controller\Admin\ContactCrudController;
 
 class adminController extends AbstractDashboardController
 {
@@ -30,6 +30,7 @@ class adminController extends AbstractDashboardController
         $url = $this->adminUrlGenerator //génère un URL
         ->setController(UserCrudController::class)//URL pour l'utilisateur
         ->setController(CarteCrudController::class)//URL pour les cartes
+        ->setController(ContactCrudController::class)//URL pour les contact
         ->generateUrl();
         return $this->redirect($url);
     }
@@ -46,5 +47,6 @@ class adminController extends AbstractDashboardController
         yield MenuItem::linkToUrl('home', 'fas fa-home', '/');
         yield MenuItem::linkToCrud('Utilisateur', 'fas fa-list', User::class);
         yield MenuItem::linkToCrud('Carte', 'fas fa-list', Carte::class);
+        yield MenuItem::linkToCrud('Contact', 'fas fa-list', Contact::class);
     }
 }

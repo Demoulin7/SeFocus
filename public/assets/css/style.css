@@ -607,6 +607,49 @@ button:focus, button:active {
   border-radius: 50px!important;
 }
 
+/* A propos */
+
+.text-img-row{
+  display: flex;
+}
+
+.apropos-text{
+  width: 65%;
+}
+
+.apropos-img{
+  width: 35%;
+  padding: 30px;
+}
+
+.apropos-img img{
+  width: 100%;
+}
+
+.intersect{
+  height: 50px;
+  background-color: var(--second-bg-color);
+}
+
+.line{
+  background-color: var(--line-color);
+  height: 2px;
+}
+
+@media (max-width:1000px) {
+  .text-img-row {
+    display: block;
+  }
+
+  .apropos-text{
+    width: 100%;
+  }
+
+  .apropos-img{
+    width: 100%;
+  }
+}
+
 /* Autres */
 
 html,body{

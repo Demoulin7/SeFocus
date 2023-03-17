@@ -53,24 +53,24 @@ class CarteRepository extends ServiceEntityRepository
     }
 
     /**
-     * @return Carte[] Returns the first one
+     * @return Carte Returns the first one
      */
-    public function findRandomPublic(): array
+    public function findRandomPublic(): Carte
     {
+
+        $cartes = $this->createQueryBuilder('c')
+            ->andWhere('c.estPublique = :val')
+            ->setParameter('val', 1)
+            ->getQuery()
+            ->getResult();
+
         try {
-            $rd = random_int(1, 10);
+            $rd = random_int(1, count($cartes));
         } catch (\Exception $e) {
             $rd = 1;
         }
 
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.estPublique = :val')
-            ->setParameter('val', 1)
-            ->andWhere('c.id = :id')
-            ->setParameter('id', $rd)
-            ->getQuery()
-            ->getResult()
-            ;
+        return $cartes[$rd-1];
     }
 
     /**

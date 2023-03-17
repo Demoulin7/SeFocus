@@ -55,7 +55,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  line-height: 260px;
+  line-height: 40px;
   color: white;
   text-align: center;
   font-weight: bold;
@@ -100,6 +100,10 @@
   background-color: #1a1a1a;
   border-radius:15px;
   transition: all .2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
 .card2:hover {

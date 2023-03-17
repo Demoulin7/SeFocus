@@ -23,6 +23,7 @@ function updateCard() {
             success: function(response) {
                 let responseArray = response.split(",");
                 newCarte(responseArray);
+                updateCard();
                 tirages.innerHTML = responseArray[2] + " cartes déjà piochées, saisissez la prochaine !";
             }
         });
@@ -33,7 +34,6 @@ function updateCard() {
                 ancienneCarte.remove();
             }
 
-            updateCard();
         }, 1000);
 
     }, { once: true });

@@ -628,7 +628,7 @@ button:focus, button:active {
 
 .intersect{
   height: 50px;
-  background-color: var(--second-bg-color);
+  background-color: var(--bg-color);
 }
 
 .line{

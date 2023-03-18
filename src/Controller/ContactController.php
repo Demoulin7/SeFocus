@@ -22,20 +22,24 @@ class ContactController extends AbstractController
         $form = $this->createForm(ContactType::class, $contact);
         $form->handleRequest($request);
 
-        /*if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $contact = $form->getData();
+
+            $this->addFlash('succes', 'Le message à bien été envoyer');
 
             $entityManager->persist($contact);
             $entityManager->flush();
 
             $email = (new Email())
-                ->from('hello@example.com')
-                ->to('you@example.com')
-                ->subject('Time for Symfony Mailer!')
-                ->html('<p>See Twig integration for better HTML integration!</p>');
+                ->from($contact->getEmail())
+                ->to('admin@Sefocus.com')
+                ->subject($contact->getNom())
+                ->html($contact->getMessage());
 
             $mailer->send($email);
 
-        }*/
+        }
 
 
         return $this->render('contact/index.html.twig', [

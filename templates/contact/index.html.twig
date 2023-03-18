@@ -3,9 +3,14 @@
 {% block title %}Nous contacter{% endblock %}
 
 {% block body %}
-    <h1 class="h1-responsive font-weight-bold text-center my-4">Nous Contacter</h1>
+    <h1 class="h1-responsive font-weight-bold text-center my-4 text">Nous Contacter</h1>
 
-    <div class="form-row">           
+    <div class="form-row text"> 
+        {% for message in app.flashes('succes')%}
+            <div class="alert alert-success" role='alert'>
+            {{ message }} 
+            </div>
+        {% endfor %}         
         {{ form_start(form) }}
         <div class="row mb-3">
             <div class="col">

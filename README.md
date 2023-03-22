@@ -8,7 +8,7 @@ Bellenger Julien, Demoulin Eddy (Demoulin7, Higgs54), Haffner Alexandre, Laurent
 
 CMS de groupe http://bjgivep.cluster031.hosting.ovh.net/Groupe2/
 
-Site en ligne : https://sefocus.climbing-federations.org/ 
+Site en ligne : https://climbing-federations.org/ 
 
 # Installation en local : 
 

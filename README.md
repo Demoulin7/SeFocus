@@ -12,22 +12,39 @@ Site en ligne : https://climbing-federations.org/
 
 # Installation en local : 
 
+Cloner le repos Github : ``` git clone "" ```
+
 Installer php (8.1), symfony (6.2) et composer
 
-Installer xampp (mysql) 
+Installer un service de base de données mysql, par exemple : xampp
+
+Pour toute autre service modifier dans le fichier .env : ``` DATABASE_URL="database" ``` se référer à la [doc symfony](https://symfony.com/doc/current/doctrine.html).
+
 
 ### Installation des dépendances : 
 
+```
 composer install
+```
 
 ### Création de la base de données : 
 
+```
 php bin/console doctrine:database:create 
 
 php bin/console doctrine:migrations:migrate 
+```
 
 ### Executer les projet : 
 
+```
 symfony server:start
+```
 
 -> http://127.0.0.1:8000/ 
+
+#### Pour fermer le serveur :
+
+```
+symfony local:server:stop
+```

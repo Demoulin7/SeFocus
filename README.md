@@ -48,3 +48,7 @@ symfony server:start
 ```
 symfony local:server:stop
 ```
+
+### Droits d'accès admin :
+
+Après avoir créer un compte, accéder à la base de données et modifier le rôle ``` ROLE_USER ``` en ``` ROLE_ADMIN ```
